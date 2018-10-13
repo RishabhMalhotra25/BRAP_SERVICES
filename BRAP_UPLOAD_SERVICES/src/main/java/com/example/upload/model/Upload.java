@@ -1,6 +1,5 @@
-package com.example.demo.model;
+package com.example.upload.model;
 
-import javax.annotation.Generated;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.upload;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -12,10 +12,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})
-public class DemoApplication {
+public class UploadServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(UploadServiceApplication.class, args);
 	}
 	
 	@Bean(name = "multipartResolver")

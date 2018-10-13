@@ -1,9 +1,8 @@
-package com.example.demo.controller;
+package com.example.upload.controller;
 
 
 import java.io.IOException;
 
-import org.apache.log4j.spi.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.model.Upload;
-import com.example.demo.repository.UploadRepository;
+import com.example.upload.model.Upload;
+import com.example.upload.repository.UploadRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
