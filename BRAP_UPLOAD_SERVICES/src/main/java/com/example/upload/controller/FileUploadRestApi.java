@@ -2,6 +2,7 @@ package com.example.upload.controller;
 
 
 import java.io.IOException;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.upload.model.Upload;
+import com.example.upload.entity.Upload;
 import com.example.upload.repository.UploadRepository;
 
 import io.swagger.annotations.Api;
@@ -44,13 +45,19 @@ public class FileUploadRestApi {
             @ApiResponse(code = 404, message = "The API could not be found")
     })
     public ResponseEntity<String> uploadFile(
-            @ApiParam(name = "file", value = "Select the file to Upload", required = true)
-			@RequestPart("file") MultipartFile file,@RequestParam("fileId") Long fileId) throws IOException {
+			@RequestParam("fileId") Long fileId,@RequestParam("fileName") String fileName, @ApiParam(name = "file", value = "Select the file to Upload", required = true)
+            @RequestPart("file") MultipartFile file,@RequestParam("fileDescription") String fileDescription,@RequestParam("fileUploadUserId") String userID) throws IOException {
     	logger.info("Start------------------------------------------");
 		Upload upload = new Upload();
 		upload.setContent(file.getBytes());
-		upload.setTitle("BRAP");
-		upload.setId(fileId);
+		
+		upload.setId(fileId	);
+		upload.setTitle(fileName);
+		upload.setFileDescription(fileDescription);
+		
+		upload.setFileUploadDate(new Date());
+		upload.setFileUploadUserID(userID);
+		
 		Upload todoItem = uploadRepository.save(upload);
 		logger.info("------------------------------------------End");
 

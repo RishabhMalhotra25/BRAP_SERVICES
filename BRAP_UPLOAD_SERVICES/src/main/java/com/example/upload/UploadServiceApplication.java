@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -19,7 +20,7 @@ public class UploadServiceApplication {
 	}
 	
 	@Bean(name = "multipartResolver")
-    public CommonsMultipartResolver multipartResolver() {
+    public MultipartResolver  multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(-1);
         return multipartResolver;
