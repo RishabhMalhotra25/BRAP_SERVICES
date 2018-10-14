@@ -51,7 +51,7 @@ public class FileUploadRestApi {
 		Upload upload = new Upload();
 		upload.setContent(file.getBytes());
 		
-		upload.setId(fileId	);
+		upload.setId(fileId);
 		upload.setTitle(fileName);
 		upload.setFileDescription(fileDescription);
 		
